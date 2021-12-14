@@ -1,5 +1,3 @@
-
-
 import java.sql.*;
 import java.util.Scanner;
 
@@ -22,7 +20,7 @@ public class Main
 
 //Aufbau der Verbindung
         Connection conn = Connect.dbConnection();
-
+/*
 //Loeschen der alten Tabellen branches, accounts, tellers und history
         deleteTables(conn);
 
@@ -42,6 +40,8 @@ public class Main
         TableValue.kontostand(7,n, conn);
         long ende = System.currentTimeMillis();
         System.out.println(ende - start);
+ */
+        TableValue.kontostand(11,conn);
         conn.close();
     }
 }

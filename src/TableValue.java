@@ -53,12 +53,13 @@ public class TableValue
         System.out.println("Tabelle tellers wurde gefuellt");
     }
 
-    static void kontostand(int accid, int n, Connection conn)throws SQLException {
+    static void kontostand(int accid, Connection conn)throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("SELECT accbalance FROM history WHERE accid = "+ accid);
-        stmt.execute("SELECT accbalance FROM history WHERE accid = "+ accid);
-
+        ResultSet rs = stmt.executeQuery("SELECT balance FROM accounts WHERE accid ="+ accid);
+        while(rs.next()){
+            System.out.println(rs.getInt(1));
+        }
         conn.commit();
         stmt.close();
-        System.out.println("Kontostand");
     }
 }
