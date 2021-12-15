@@ -13,8 +13,8 @@ public class Connect
 //Datenbank URL, Datenbank user und passwort werden hinterlegt
         java.sql.Connection conn = null;
         String connectionUrl = "jdbc:mysql://127.0.0.1:10/DBI?rewriteBatchedStatements=true";
-        String connectionUser = "sam";
-        String connectionPassword ="password";
+        String connectionUser = "dbineu";
+        String connectionPassword ="123";
 //URL, USER und PASSWORD werden übergeben
         try
         {

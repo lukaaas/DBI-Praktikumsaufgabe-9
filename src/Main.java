@@ -10,7 +10,7 @@ public class Main
     static void deleteTables(Connection conn) throws SQLException
     {
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("Drop TABLE IF EXISTS history");
+      //  stmt.executeUpdate("Drop TABLE IF EXISTS history");
         stmt.executeUpdate("DROP TABLE IF EXISTS accounts");
         stmt.executeUpdate("DROP TABLE IF EXISTS tellers");
         stmt.executeUpdate("DROP TABLE IF EXISTS branches");
@@ -32,6 +32,9 @@ public class Main
 //Eingabe n
         System.out.println("Geben Sie n ein: ");
         int n = scan.nextInt();
+// Eingabe der ACCID zum erfragen des Kontostandes
+        System.out.println("Geben Sie die ACCID ein: ");
+        int nAccid = scan.nextInt();
 
 //Beginn Zeitmessung
         long start = System.currentTimeMillis();
@@ -39,9 +42,17 @@ public class Main
         TableValue.fillBranches(n, conn);
         TableValue.fillAccounts(n, conn);
         TableValue.fillTellers(n, conn);
-        TableValue.kontostand(7,n, conn);
+      //  TableValue.fillHistory(n,conn);
+        int i =0;
+        while (i!=3)
+        {
+            TableValue.kontostand(nAccid, n, conn);
+            TableValue.einzahlung(nAccid, 1, 1, 100, conn);
+            i++;
+        }
+        TableValue.analyse(100,conn);
         long ende = System.currentTimeMillis();
-        System.out.println(ende - start);
+        System.out.println("Die Dauer beträgt "+(ende - start));
         conn.close();
     }
 }
