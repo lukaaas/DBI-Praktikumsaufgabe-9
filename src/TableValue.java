@@ -123,11 +123,12 @@ public class TableValue {
 
             System.out.println("Die Einzahlungen betragen:");
             while (rs.next()) {
-                System.out.print(rs.getInt(1)+"/t");
-                System.out.print(rs.getInt(2));
-                System.out.print(rs.getInt(3));
-                System.out.print(rs.getInt(4));
-                System.out.println(rs.getString(5));
+                System.out.print(rs.getInt(1)+"\t");
+                System.out.print(rs.getInt(2)+"\t");
+                System.out.print(rs.getInt(3)+"\t");
+                System.out.print(rs.getInt(4)+"\t");
+                System.out.print(rs.getInt(5)+"\t");
+                System.out.println(rs.getString(6));
 
             }
 
