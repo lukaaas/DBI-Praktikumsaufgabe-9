@@ -9,46 +9,48 @@ import java.util.Random;
 
 public class PreparedTransaction {
 
-    private static int amoutPreparedTransaction;
-    /*private Kontostand kontostand;
+    private int amoutPreparedTransaction;
+    private Kontostand kontostand;
     private Einzahlung einzahlung;
-    private Analyse analyse;*/
-    private static int randomBranchId;
-    private static int randomAccountId;
-    private static int randomTellerId;
-    private static int randomDelta;
-    private static int randomTx;
+    private Analyse analyse;
+    private int randomBranchId;
+    private int randomAccountId;
+    private int randomTellerId;
+    private int randomDelta;
+    private int randomTx;
 
     public PreparedTransaction(){
         this.amoutPreparedTransaction++;
         this.randomBranchId = new Random().nextInt(50);
-        this.randomAccountId = new Random().nextInt(5000000);
+        this.randomAccountId = 3726588;//new Random().nextInt(5000000);
         this.randomTellerId = new Random().nextInt(500);
         this.randomDelta = new Random().nextInt(2000);
-        this.randomTx = new Random().nextInt(100);
-       /*this.kontostand = new Kontostand();
+        this.randomTx = 12;//new Random().nextInt(100);
+       this.kontostand = new Kontostand();
         this.einzahlung = new Einzahlung();
-        this.analyse = new Analyse();*/ // Nicht eingesetzt, weil Aufwendig.
+        this.analyse = new Analyse();
     }
 
     public void run(){
         try {
-            /*System.out.println("randomBranchId: " + randomBranchId);
-            System.out.println("randomAccountId: " + randomAccountId);
-            System.out.println("randomTellerId: " + randomTellerId);
-            System.out.println("randomDelta: " + randomDelta);
-            System.out.println("randomTx: " + randomTx);*/
+
             if(randomTx < 35)
-                //kontostand.kontostand(randomAccountId);
-                Kontostand.kontostand(randomAccountId);
+                kontostand.lesen(randomAccountId);
+                //Kontostand.kontostand(randomAccountId);
             if(randomTx >= 35 && randomTx <= 85)
-                //einzahlung.einzahlung(randomAccountId,randomTellerId,randomBranchId,randomDelta);
-                Einzahlung.einzahlung(randomAccountId,randomTellerId,randomBranchId,randomDelta);
+                einzahlung.ausfuehren(randomAccountId,randomTellerId,randomBranchId,randomDelta);
+                //Einzahlung.einzahlung(randomAccountId,randomTellerId,randomBranchId,randomDelta);
             if(randomTx > 85)
-                //analyse.analyse(randomDelta);
-                Analyse.analyse(randomDelta);
+                analyse.ausfuehren(randomDelta);
+                //Analyse.analyse(randomDelta);
         } catch (SQLException e) {
         e.printStackTrace();
         }
     }
 }
+
+           /*System.out.println("randomBranchId: " + randomBranchId);
+            System.out.println("randomAccountId: " + randomAccountId);
+            System.out.println("randomTellerId: " + randomTellerId);
+            System.out.println("randomDelta: " + randomDelta);
+            System.out.println("randomTx: " + randomTx);*/

@@ -7,17 +7,17 @@ import java.time.LocalDateTime;
 
 public class Einzahlung  {
 
-    private final static String queryUpdate = "UPDATE branches SET balance = balance + ? WHERE branchid = ?; UPDATE tellers SET balance = balance + ? WHERE tellerid = ?; UPDATE accounts SET balance = balance + ? WHERE accid = ?; SELECT balance FROM branches WHERE branchid = ?";
-    private final static String queryInsert ="INSERT INTO history (accid,tellerid,delta,branchid, accbalance, cmmnt) VALUES(?,?,?,?,?,?)";
-
+    private final static String stmtUpdate = "UPDATE branches SET balance = balance + ? WHERE branchid = ?; UPDATE tellers SET balance = balance + ? WHERE tellerid = ?; UPDATE accounts SET balance = balance + ? WHERE accid = ?; SELECT balance FROM branches WHERE branchid = ?";
+    private final static String stmtInsert ="INSERT INTO history (accid,tellerid,delta,branchid, accbalance, cmmnt) VALUES(?,?,?,?,?,?)";
     private static DataSource hikari = new DataSource();
 
-    public static void  einzahlung(int accid, int tellerid, int branchid, int delta) {
+    public void ausfuehren(int accid, int tellerid, int branchid, int delta) {
         LocalDateTime date = LocalDateTime.now();
         String datum = date.toString();
+        Kontostand kontostand = new Kontostand();
         try (Connection conn = hikari.getConnection();
-             PreparedStatement statementUpdate = conn.prepareStatement(queryUpdate);
-             PreparedStatement statementInsert = conn.prepareStatement(queryInsert);){
+             PreparedStatement statementUpdate = conn.prepareStatement(stmtUpdate);
+             PreparedStatement statementInsert = conn.prepareStatement(stmtInsert);){
 
             statementUpdate.setInt(1,delta);
             statementUpdate.setInt(2,branchid);
@@ -28,7 +28,7 @@ public class Einzahlung  {
             statementUpdate.setInt(7,branchid);
             statementUpdate.executeUpdate();
 
-            int accbalance = Kontostand.kontostand(accid);
+            int accbalance = kontostand.lesen(accid);
 
             System.out.println("Der Kontostand nach der Einzahlung beträgt:\n" + accbalance);
 

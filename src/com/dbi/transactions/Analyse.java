@@ -11,7 +11,7 @@ public class Analyse {
     private final static String query = "SELECT accid,tellerid,delta,branchid,accbalance,cmmnt FROM history WHERE delta = ?;";
     private static DataSource hikari = new DataSource();
 
-    public static void analyse(int delta) throws SQLException {
+    public void ausfuehren(int delta) throws SQLException {
 
         try (PreparedStatement statement = hikari.getConnection().prepareStatement(query);){
 

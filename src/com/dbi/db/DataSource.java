@@ -28,7 +28,7 @@ public class DataSource {
         hconfig.setAutoCommit(true); // Atomarität
         //hconfig.addDataSourceProperty( "prepStmtCacheSize" , 250 );
         //hconfig.addDataSourceProperty( "prepStmtCacheSqlLimit" , 2048 );
-        hconfig.setMaximumPoolSize(10000000);
+        //hconfig.setMaximumPoolSize(10000000);
         ds = new HikariDataSource( hconfig );
 
         //Connections bewaren um zu gucken, ob alle zu sind
