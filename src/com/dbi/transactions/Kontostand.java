@@ -1,7 +1,6 @@
 package com.dbi.transactions;
 
 import com.dbi.db.DataSource;
-import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.*;
 
@@ -16,12 +15,12 @@ public class Kontostand {
             statement.setInt(1, accid);
             ResultSet rs = statement.executeQuery();
 
-            System.out.println("Der Kontostand beträgt:" + "accid" + accid);
+            System.out.println("Der Kontostand beträgt:");
             while (rs.next()) {
                 balance = rs.getInt(1);
                 System.out.println(balance);
             }
-            //hikari.getHirakiDataSource().close();
+            //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
         }
         return balance;
     }

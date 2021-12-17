@@ -1,0 +1,3 @@
+jdbc:mysql://127.0.0.1:10/dbi?rewriteBatchedStatements=true&allowMultiQueries=true
+sam
+password

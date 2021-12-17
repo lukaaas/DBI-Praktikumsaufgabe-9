@@ -2,7 +2,6 @@ package com.dbi.transactions;
 
 import com.dbi.db.DataSource;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +27,7 @@ public class Analyse {
                 System.out.print("accbalance: " + rs.getInt(5)+"\t");
                 System.out.println("cmmnt: " + rs.getString(6));
             }
-            //hikari.getHirakiDataSource().close();
+            //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
         } catch (Exception e) {
             e.printStackTrace();
         }

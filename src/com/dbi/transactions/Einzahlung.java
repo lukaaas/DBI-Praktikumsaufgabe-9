@@ -3,7 +3,6 @@ package com.dbi.transactions;
 import com.dbi.db.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDateTime;
 
 public class Einzahlung  {
@@ -31,7 +30,7 @@ public class Einzahlung  {
 
             int accbalance = Kontostand.kontostand(accid);
 
-            System.out.println("Der Kontostand nach der Einzahlung beträgt: " + accbalance);
+            System.out.println("Der Kontostand nach der Einzahlung beträgt:\n" + accbalance);
 
             statementInsert.setInt(1,accid);
             statementInsert.setInt(2,tellerid);
@@ -41,7 +40,7 @@ public class Einzahlung  {
             statementInsert.setString(6, " " + date); //30 Caracters
             statementInsert.executeUpdate();
 
-            //hikari.getHirakiDataSource().close(); // In Try Block kümmertsich um das "close"
+            //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
         } catch (Exception e) {
             e.printStackTrace();
         }

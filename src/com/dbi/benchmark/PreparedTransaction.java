@@ -1,10 +1,8 @@
 package com.dbi.benchmark;
 
-import com.dbi.db.DataSource;
-import com.dbi.transactions.Analyse;
 import com.dbi.transactions.Einzahlung;
+import com.dbi.transactions.Analyse;
 import com.dbi.transactions.Kontostand;
-import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.SQLException;
 import java.util.Random;
@@ -26,11 +24,11 @@ public class PreparedTransaction {
         this.randomBranchId = new Random().nextInt(50);
         this.randomAccountId = new Random().nextInt(5000000);
         this.randomTellerId = new Random().nextInt(500);
-        this.randomDelta = 1777 ;//new Random().nextInt(2000);
-        this.randomTx = 90;//new Random().nextInt(100);
+        this.randomDelta = new Random().nextInt(2000);
+        this.randomTx = new Random().nextInt(100);
        /*this.kontostand = new Kontostand();
         this.einzahlung = new Einzahlung();
-        this.analyse = new Analyse();*/
+        this.analyse = new Analyse();*/ // Nicht eingesetzt, weil Aufwendig.
     }
 
     public void run(){

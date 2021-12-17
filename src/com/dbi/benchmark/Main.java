@@ -6,12 +6,11 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Table manageTable = new Table();
-        //manageTable.cleanHistory();
+        manageTable.cleanHistory();
         manageTable.closeConnection();
-
         int i = 0;
 
-        while (i < 5){
+        while (i < 6){
             PreparedTransaction pt = new PreparedTransaction();
             pt.run();
             i++;
