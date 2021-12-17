@@ -22,10 +22,10 @@ public class PreparedTransaction {
     public PreparedTransaction(){
         this.amoutPreparedTransaction++;
         this.randomBranchId = new Random().nextInt(50);
-        this.randomAccountId = 3726588;//new Random().nextInt(5000000);
+        this.randomAccountId = new Random().nextInt(5000000);
         this.randomTellerId = new Random().nextInt(500);
         this.randomDelta = new Random().nextInt(2000);
-        this.randomTx = 12;//new Random().nextInt(100);
+        this.randomTx = new Random().nextInt(100);
        this.kontostand = new Kontostand();
         this.einzahlung = new Einzahlung();
         this.analyse = new Analyse();
@@ -33,7 +33,6 @@ public class PreparedTransaction {
 
     public void run(){
         try {
-
             if(randomTx < 35)
                 kontostand.lesen(randomAccountId);
                 //Kontostand.kontostand(randomAccountId);

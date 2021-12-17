@@ -3,6 +3,7 @@ package com.dbi.transactions;
 import com.dbi.db.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
 
 public class Einzahlung  {
@@ -13,6 +14,7 @@ public class Einzahlung  {
 
     public void ausfuehren(int accid, int tellerid, int branchid, int delta) {
         LocalDateTime date = LocalDateTime.now();
+        int accbalance = 0;
         String datum = date.toString();
         Kontostand kontostand = new Kontostand();
         try (Connection conn = hikari.getConnection();
@@ -28,7 +30,10 @@ public class Einzahlung  {
             statementUpdate.setInt(7,branchid);
             statementUpdate.executeUpdate();
 
-            int accbalance = kontostand.lesen(accid);
+            ResultSet rs = statementInsert.executeQuery("SELECT balance FROM branches WHERE branchId =" + branchid);
+            while(rs.next()){
+                accbalance = rs.getInt(1);
+            }
 
             System.out.println("Der Kontostand nach der Einzahlung beträgt:\n" + accbalance);
 

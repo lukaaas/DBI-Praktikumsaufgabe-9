@@ -10,7 +10,6 @@ public class LoadDriver {
     private TransactionGenerator transaction;
 
     public LoadDriver(String id) throws IOException {
-
         this.id = id;
         this.database = new Database(SetupBenchmark.getProperties("app.properties"));
         timer = new Timer();
@@ -18,14 +17,12 @@ public class LoadDriver {
     }
 
     public void stress (int period){
-
         try {
             this.database.connect();
             //timer.scheduleAtFixedRate(transaction,0,period);
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public void cancel(){
@@ -43,8 +40,4 @@ public class LoadDriver {
     public long stopCounting() {
         return 1;
     }
-
-
 }
-
-
