@@ -23,20 +23,20 @@ public class Analyse {
 
             statement.setInt(1,delta);
             ResultSet rs = statement.executeQuery();
-            //System.out.println();
-            //if(!rs.next())
-               // System.out.println("Es gab keine Transactions");
-            //else{
-               // System.out.println("Die Einzahlungen betragen:");
+            System.out.println();
+            if(!rs.next())
+                System.out.println("Es gab keine Transactions mit eine einzahlung mit eine höhe von: " + delta);
+            else{
+                System.out.println("Die Einzahlungen betragen:");
                 while (rs.next()) {
-                    /*System.out.print("accid: " + rs.getInt(1)+"\t");
+                    System.out.print("accid: " + rs.getInt(1)+"\t");
                     System.out.print("tellerid: " + rs.getInt(2)+"\t");
                     System.out.print("delta: " + rs.getInt(3)+"\t");
                     System.out.print("branchid: " + rs.getInt(4)+"\t");
                     System.out.print("accbalance: " + rs.getInt(5)+"\t");
-                    System.out.println("cmmnt: " + rs.getString(6));*/
+                    System.out.println("cmmnt: " + rs.getString(6));
                 }
-            //}
+            }
         } catch (Exception e) {e.printStackTrace();}
     }
 }
