@@ -20,15 +20,15 @@ public class DataSource {
         hconfig.setPassword( config.getPassword());
         hconfig.addDataSourceProperty( "rewriteBatchedStatements",true );
         hconfig.addDataSourceProperty( "allowMultiQueries" , true );
-        hconfig.setAutoCommit(true); // Atomarität
+        hconfig.setAutoCommit(false); // Atomarität
         dataSource = new HikariDataSource( hconfig );
-
+        hconfig.setMaximumPoolSize(100);
 
         //hconfig.addDataSourceProperty( "useConfigs" , "maxPerformance" );
         //hconfig.addDataSourceProperty( "cachePrepStmts" , true );
         //hconfig.addDataSourceProperty( "prepStmtCacheSize" , 250 );
         //hconfig.addDataSourceProperty( "prepStmtCacheSqlLimit" , 2048 );
-        //hconfig.setMaximumPoolSize(10000000);
+
     }
 
     public Connection getConnection() throws SQLException {

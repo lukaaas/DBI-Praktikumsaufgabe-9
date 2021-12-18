@@ -1,7 +1,0 @@
-
-]	java:S125"<This block of commented-out lines of code should be removed.(­ˆÈÒüÿÿÿÿ8“œ‘åÜ/
-O
-java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8“œ‘åÜ/
-O
-java:S1128"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ8”œ‘åÜ/
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ßöÊ©şÿÿÿÿ

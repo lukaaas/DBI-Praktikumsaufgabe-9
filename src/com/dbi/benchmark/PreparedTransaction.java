@@ -1,13 +1,13 @@
 package com.dbi.benchmark;
 
 import com.dbi.transactions.*;
-import java.sql.SQLException;
 import java.util.Random;
 import java.util.TimerTask;
 
 public class PreparedTransaction extends TimerTask {
 
     private static int amoutPreparedTransaction;
+    private int id;
     private Kontostand kontostand;
     private Einzahlung einzahlung;
     private Analyse analyse;
@@ -18,8 +18,6 @@ public class PreparedTransaction extends TimerTask {
     private int randomTx;
 
     public PreparedTransaction(){
-
-
     }
 
     @Override
@@ -46,12 +44,10 @@ public class PreparedTransaction extends TimerTask {
         this.kontostand = new Kontostand();
         this.einzahlung = new Einzahlung();
         this.analyse = new Analyse();
-    }
-    public void startCounting(boolean bool) {
         this.amoutPreparedTransaction++;
     }
 
-    private int getAmountTransaction(){
+    public static int getAmountTransaction(){
         return amoutPreparedTransaction;
     }
 }

@@ -1,11 +1,8 @@
 package com.dbi.transactions;
 
 import com.dbi.db.DataSource;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.time.LocalDateTime;
 
 public class Einzahlung  {
@@ -40,12 +37,8 @@ public class Einzahlung  {
             statementUpdate.setInt(7,branchid);
             statementUpdate.executeUpdate();
 
-            ResultSet rs = statementInsert.executeQuery("SELECT balance FROM branches WHERE branchId =" + branchid);
-            while(rs.next()){
-                accbalance = rs.getInt(1);
-            }
-
-            System.out.println("Der Kontostand nach der Einzahlung beträgt:\n" + accbalance);
+            System.out.println("Einzahlung eingeführt");
+            accbalance = kontostand.lesen(accid);
 
             statementInsert.setInt(1,accid);
             statementInsert.setInt(2,tellerid);
@@ -59,40 +52,4 @@ public class Einzahlung  {
             //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
         } catch (Exception e) {e.printStackTrace();}
     }
-
-    /*
-     public static void einzahlung(int accid, int tellerid, int branchid, int delta) throws SQLException {
-
-
-        LocalDate date = LocalDate.now();
-        String datum = date.toString();
-
-        PreparedStatement stmt = null;
-        try (Connection conn = hikari.getConnection();){
-            stmt = conn.prepareStatement("SELECT balance FROM branches WHERE branchid = " + branchid);
-
-            stmt.executeUpdate("UPDATE branches SET balance = balance + '" + delta + "' WHERE branchid = " + branchid);
-            stmt.executeUpdate("UPDATE tellers SET balance = balance + '" + delta + "' WHERE tellerid = " + tellerid);
-            stmt.executeUpdate("UPDATE accounts SET balance = balance + '" + delta + "' WHERE accid = " + accid);
-
-            stmt.executeUpdate("INSERT INTO history SET accid='" + accid + "',tellerid='" + tellerid + "',delta='" + delta + "',branchid='" + branchid + "', accbalance =0, cmmnt = 'Einzahlung vom'" + datum + "'");
-            stmt.executeUpdate("UPDATE history SET accbalance = accbalance +'" + delta + "' WHERE accid = " + accid);
-            ResultSet rs = stmt.executeQuery("SELECT balance FROM branches WHERE branchid = " + branchid);
-
-            System.out.println("Der neue Kontostand nach der Einzahlung beträgt:");
-
-
-            while (rs.next()) {
-                System.out.println(rs.getInt(1));
-            }
-
-            //conn.commit();
-            stmt.close();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-     */
 }

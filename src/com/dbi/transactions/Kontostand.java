@@ -1,7 +1,6 @@
 package com.dbi.transactions;
 
 import com.dbi.db.DataSource;
-
 import java.io.IOException;
 import java.sql.*;
 
@@ -13,9 +12,7 @@ public class Kontostand {
     static {
         try {
             hikari = new DataSource();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) {e.printStackTrace();}
     }
 
     public int lesen(int accid) {
@@ -30,7 +27,6 @@ public class Kontostand {
                 balance = rs.getInt(1);
                 System.out.println(balance);
             }
-            //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
         }catch (Exception e) {e.printStackTrace();}
         return balance;
     }
