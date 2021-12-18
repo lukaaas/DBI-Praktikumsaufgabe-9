@@ -20,7 +20,7 @@ public class DataSource {
         hconfig.setPassword( config.getPassword());
         hconfig.addDataSourceProperty( "rewriteBatchedStatements",true );
         hconfig.addDataSourceProperty( "allowMultiQueries" , true );
-        hconfig.setAutoCommit(false); // Atomarität
+        hconfig.setAutoCommit(true); // Atomarität
         dataSource = new HikariDataSource( hconfig );
 
 

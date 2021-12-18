@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Einzahlung  {
 
     private final static String stmtUpdate = "UPDATE branches SET balance = balance + ? WHERE branchid = ?; UPDATE tellers SET balance = balance + ? WHERE tellerid = ?; UPDATE accounts SET balance = balance + ? WHERE accid = ?; SELECT balance FROM branches WHERE branchid = ?";
-    private final static String stmtInsert ="INSERT INTO history (accid,tellerid,delta,branchid, accbalance, cmmnt) VALUES(?,?,?,?,?,?)";
+    private final static String stmtInsert ="SET FOREIGN_KEY_CHECKS =0;INSERT INTO history (accid,tellerid,delta,branchid, accbalance, cmmnt) VALUES(?,?,?,?,?,?);";
     private static DataSource hikari;
 
     static {
@@ -54,6 +54,7 @@ public class Einzahlung  {
             statementInsert.setInt(5,accbalance);
             statementInsert.setString(6, " " + date); //30 Caracters
             statementInsert.executeUpdate();
+            statementInsert.executeUpdate("SET FOREIGN_KEY_CHECKS =1;");
 
             //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
         } catch (Exception e) {e.printStackTrace();}
