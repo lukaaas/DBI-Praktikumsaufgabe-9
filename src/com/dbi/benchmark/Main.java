@@ -2,18 +2,15 @@ package com.dbi.benchmark;
 
 import com.dbi.db.Table;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
         Table manageTable = new Table();
         manageTable.cleanHistory();
-        manageTable.closeConnection();
-        int i = 0;
-
-        while (i < 6){
-            PreparedTransaction pt = new PreparedTransaction();
-            pt.run();
-            i++;
-        }
+        LoadDriver ld = new LoadDriver();
+        ld.startLoadDriver();
     }
 }

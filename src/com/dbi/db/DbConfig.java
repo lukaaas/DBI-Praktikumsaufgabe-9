@@ -1,18 +1,30 @@
 package com.dbi.db;
 
-public class DbConfig
-{
-    // Nur innerhable der Klasse abrufbar
-    private String url;
-    private String parameter;
-    private String user;
-    private String password;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
-    // Nur innerhable der Package abrufbar
-    protected DbConfig() {
-        this.url = "jdbc:mysql://127.0.0.1:10/dbi";
-        this.user = "sam";
-        this.password = "password";
+public class DbConfig {
+
+    private String url, user, password;
+    private String [] parameter = new String[3];
+
+    protected DbConfig() throws IOException {
+        this.loadConfigFromFile();
+        this.url = parameter[0];
+        this.user = parameter[1];
+        this.password = parameter[2];
+    }
+    // url username und password aus der Datei configFile.propreties einlesen
+    private void loadConfigFromFile() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("src/com/dbi/db/configFile.properties"));
+        int idx = 0;
+        String line;
+
+        while ((line = br.readLine()) != null) {
+            this.parameter[idx] = line;
+            idx++;
+        }
     }
 
     protected String getUrl() {

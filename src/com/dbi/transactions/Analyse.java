@@ -1,19 +1,25 @@
 package com.dbi.transactions;
 
 import com.dbi.db.DataSource;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.IOException;
+import java.sql.*;
 
 public class Analyse {
 
-    private final static String query = "SELECT accid,tellerid,delta,branchid,accbalance,cmmnt FROM history WHERE delta = ?;";
-    private static DataSource hikari = new DataSource();
+    private final static String query =
+            "SELECT accid,tellerid,delta,branchid,accbalance,cmmnt FROM history WHERE delta = ?;";
+    private static DataSource hikari;
+
+    static {
+        try {
+            hikari = new DataSource();
+        } catch (IOException e) {e.printStackTrace();}
+    }
 
     public void ausfuehren(int delta) throws SQLException {
 
-        try (PreparedStatement statement = hikari.getConnection().prepareStatement(query);){
+        try (Connection conn = hikari.getConnection();
+             PreparedStatement statement = conn.prepareStatement(query);){
 
             statement.setInt(1,delta);
             ResultSet rs = statement.executeQuery();
@@ -29,12 +35,9 @@ public class Analyse {
                     System.out.print("branchid: " + rs.getInt(4)+"\t");
                     System.out.print("accbalance: " + rs.getInt(5)+"\t");
                     System.out.println("cmmnt: " + rs.getString(6));
-            }
+                }
 
             }
-            //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {e.printStackTrace();}
     }
 }

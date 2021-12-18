@@ -1,4 +1,4 @@
-package Entwurf;
+/*package Entwurf;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -40,3 +40,4 @@ public class Database {
         this.conn.close();
     }
 }
+*/

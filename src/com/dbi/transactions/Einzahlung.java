@@ -1,6 +1,8 @@
 package com.dbi.transactions;
 
 import com.dbi.db.DataSource;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +12,15 @@ public class Einzahlung  {
 
     private final static String stmtUpdate = "UPDATE branches SET balance = balance + ? WHERE branchid = ?; UPDATE tellers SET balance = balance + ? WHERE tellerid = ?; UPDATE accounts SET balance = balance + ? WHERE accid = ?; SELECT balance FROM branches WHERE branchid = ?";
     private final static String stmtInsert ="INSERT INTO history (accid,tellerid,delta,branchid, accbalance, cmmnt) VALUES(?,?,?,?,?,?)";
-    private static DataSource hikari = new DataSource();
+    private static DataSource hikari;
+
+    static {
+        try {
+            hikari = new DataSource();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void ausfuehren(int accid, int tellerid, int branchid, int delta) {
         LocalDateTime date = LocalDateTime.now();
@@ -46,9 +56,7 @@ public class Einzahlung  {
             statementInsert.executeUpdate();
 
             //hikari.getHirakiDataSource().close(); // Try() kümmert sich umd das close()
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {e.printStackTrace();}
     }
 
     /*

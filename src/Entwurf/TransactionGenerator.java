@@ -2,7 +2,7 @@ package Entwurf;
 
 import java.sql.SQLException;
 import java.util.Random;
-
+/*
 public class TransactionGenerator {
 
     private int amoutOfTransaction = 0;
@@ -62,4 +62,4 @@ public class TransactionGenerator {
 
     public void stopCounting() {
     }
-}
+}*/

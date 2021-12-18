@@ -1,15 +1,13 @@
 package com.dbi.benchmark;
 
-import com.dbi.transactions.Einzahlung;
-import com.dbi.transactions.Analyse;
-import com.dbi.transactions.Kontostand;
-
+import com.dbi.transactions.*;
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.TimerTask;
 
-public class PreparedTransaction {
+public class PreparedTransaction extends TimerTask {
 
-    private int amoutPreparedTransaction;
+    private static int amoutPreparedTransaction;
     private Kontostand kontostand;
     private Einzahlung einzahlung;
     private Analyse analyse;
@@ -20,36 +18,40 @@ public class PreparedTransaction {
     private int randomTx;
 
     public PreparedTransaction(){
-        this.amoutPreparedTransaction++;
-        this.randomBranchId = new Random().nextInt(50);
-        this.randomAccountId = new Random().nextInt(5000000);
-        this.randomTellerId = new Random().nextInt(500);
-        this.randomDelta = new Random().nextInt(2000);
-        this.randomTx = new Random().nextInt(100);
-       this.kontostand = new Kontostand();
-        this.einzahlung = new Einzahlung();
-        this.analyse = new Analyse();
+
+
     }
 
+    @Override
     public void run(){
+        initTransaction();
         try {
-            if(randomTx < 35)
+            if(randomTx <= 35)
                 kontostand.lesen(randomAccountId);
                 //Kontostand.kontostand(randomAccountId);
-            if(randomTx >= 35 && randomTx <= 85)
+            if(randomTx > 35 && randomTx <= 85)
                 einzahlung.ausfuehren(randomAccountId,randomTellerId,randomBranchId,randomDelta);
                 //Einzahlung.einzahlung(randomAccountId,randomTellerId,randomBranchId,randomDelta);
             if(randomTx > 85)
                 analyse.ausfuehren(randomDelta);
                 //Analyse.analyse(randomDelta);
-        } catch (SQLException e) {
-        e.printStackTrace();
-        }
+        } catch (Exception e) {e.printStackTrace();}
+    }
+    public void initTransaction(){
+        this.randomBranchId = new Random().nextInt(50);
+        this.randomAccountId = new Random().nextInt(5000000);
+        this.randomTellerId = new Random().nextInt(500);
+        this.randomDelta = new Random().nextInt(2000);
+        this.randomTx = new Random().nextInt(100);
+        this.kontostand = new Kontostand();
+        this.einzahlung = new Einzahlung();
+        this.analyse = new Analyse();
+    }
+    public void startCounting(boolean bool) {
+        this.amoutPreparedTransaction++;
+    }
+
+    private int getAmountTransaction(){
+        return amoutPreparedTransaction;
     }
 }
-
-           /*System.out.println("randomBranchId: " + randomBranchId);
-            System.out.println("randomAccountId: " + randomAccountId);
-            System.out.println("randomTellerId: " + randomTellerId);
-            System.out.println("randomDelta: " + randomDelta);
-            System.out.println("randomTx: " + randomTx);*/

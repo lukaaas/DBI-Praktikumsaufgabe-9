@@ -1,10 +1,10 @@
-package Entwurf;
+/*package Entwurf;
 
 import java.io.*;
 
 public class SetupBenchmark {
 
-    public static String[] getProperties(String s) throws IOException {
+    private static String[] getProperties(String s) throws IOException {
 
         String [] propr = new String[3];
         FileReader f = new FileReader("properties");
@@ -19,3 +19,4 @@ public class SetupBenchmark {
         return propr;
     }
 }
+*/
