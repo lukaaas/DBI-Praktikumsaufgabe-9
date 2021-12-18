@@ -1,6 +1,5 @@
 package com.dbi.benchmark;
 
-import java.io.IOException;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 

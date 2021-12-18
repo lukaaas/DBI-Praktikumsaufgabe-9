@@ -22,7 +22,7 @@ public class Einzahlung  {
         }
     }
 
-    public void ausfuehren(int accid, int tellerid, int branchid, int delta) {
+    public static void ausfuehren(int accid, int tellerid, int branchid, int delta) {
         LocalDateTime date = LocalDateTime.now();
         int accbalance = 0;
         String datum = date.toString();

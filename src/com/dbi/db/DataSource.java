@@ -20,9 +20,9 @@ public class DataSource {
         hconfig.setPassword( config.getPassword());
         hconfig.addDataSourceProperty( "rewriteBatchedStatements",true );
         hconfig.addDataSourceProperty( "allowMultiQueries" , true );
-        hconfig.setAutoCommit(true); // Atomarität
+        hconfig.setAutoCommit(false); // Atomarität
         dataSource = new HikariDataSource( hconfig );
-        hconfig.setMaximumPoolSize(100);
+        hconfig.setMaximumPoolSize(1000);
 
         //hconfig.addDataSourceProperty( "useConfigs" , "maxPerformance" );
         //hconfig.addDataSourceProperty( "cachePrepStmts" , true );

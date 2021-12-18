@@ -15,7 +15,7 @@ public class Kontostand {
         } catch (IOException e) {e.printStackTrace();}
     }
 
-    public int lesen(int accid) {
+    public static int lesen(int accid) {
         int balance = 0;
         try (Connection conn = hikari.getConnection();
              PreparedStatement statement = conn.prepareStatement(query);) {
