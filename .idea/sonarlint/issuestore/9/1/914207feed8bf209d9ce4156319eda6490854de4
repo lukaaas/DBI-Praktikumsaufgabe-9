@@ -1,0 +1,14 @@
+
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ˆæŸøþÿÿÿÿ
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(è‹×Æ8¿¤“öÝ/
+P
+java:S1118":Add a private constructor to hide the implicit public one.(¨ô­É
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ˆæŸøþÿÿÿÿ
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(è‹×Æ8Ë¤“öÝ/
+G
+java:S1481#"*Remove this unused "datum" local variable.(¼Ñ ý8Û¤“öÝ/
+W	java:S1257"<This block of commented-out lines of code should be removed.(í–ø8â¤“öÝ/
+K
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8„öÝ/

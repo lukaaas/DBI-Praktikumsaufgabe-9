@@ -1,0 +1,15 @@
+
+ž
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Å¼†ú8é•¯ÅÝ/
+]	java:S125"<This block of commented-out lines of code should be removed.(À©¿áúÿÿÿÿ8ò•¯ÅÝ/
+X	java:S125"<This block of commented-out lines of code should be removed.(ïéÏ¾8ø•¯ÅÝ/
+X	java:S125"<This block of commented-out lines of code should be removed.(è¬¤8ù•¯ÅÝ/
+]	java:S125""<This block of commented-out lines of code should be removed.(ÊÙª¼ûÿÿÿÿ8û•¯ÅÝ/
+X
+java:S2696/"6Make the enclosing method "static" or remove this set.(áœÓÅüÿÿÿÿ8‡–¯ÅÝ/
+W
+java:S2209/"5Change this instance-reference to a static reference.(áœÓÅüÿÿÿÿ8ˆ–¯ÅÝ/
+]	java:S125,"<This block of commented-out lines of code should be removed.(èŒ¿ÿÿÿÿÿ8ˆ–¯ÅÝ/
+H
+java:S1068
+"&Remove this unused "id" private field.(ôç¼Óþÿÿÿÿ8Š–¯ÅÝ/
