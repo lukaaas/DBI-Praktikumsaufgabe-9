@@ -1,0 +1,25 @@
+
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¥Š›ýÿÿÿÿ8ïÞµ·Ý/
+a
+java:S1124	"EReorder the modifiers to comply with the Java Language Specification.(²ä÷W8÷Þµ·Ý/
+b
+java:S1124
+"EReorder the modifiers to comply with the Java Language Specification.(‹­ïð8ùÞµ·Ý/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åÅµ¾8ûÞµ·Ý/
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(”¯ Ž8þÞµ·Ý/
+>
+java:S1116"Remove this empty statement.(¶Ûã©øÿÿÿÿ8ÿÞµ·Ý/
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ8†ßµ·Ý/
+V
+java:S1068
+"9Remove this unused "SETTLING_PHASE_IN_MIN" private field.(‹­ïð8‡ßµ·Ý/
+Y
+java:S1068"<Remove this unused "MEASUREMENT_PHASE_IN_MIN" private field.(åÅµ¾8‡ßµ·Ý/
+S
+java:S1068"6Remove this unused "DECAY_PHASE_IN_MIN" private field.(”¯ Ž8ˆßµ·Ý/
+b
+java:S2184)"@Cast one of the operands of this integer division to a "double".(—ÕÓ™úÿÿÿÿ8‰ßµ·Ý/

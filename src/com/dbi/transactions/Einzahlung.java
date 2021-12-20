@@ -27,17 +27,17 @@ public class Einzahlung  {
         int accbalance = 0;
         String datum = date.toString();
         try (Connection conn = hikari.getConnection();
-             PreparedStatement statementUpdate = conn.prepareStatement(stmtUpdate);
+             PreparedStatement statementUpdate = conn.prepareCall("einzahlung(" + accid + ", "+ tellerid +", " + branchid+", " + delta+")");
              PreparedStatement statementInsert = conn.prepareStatement(stmtInsert);){
 
-            statementUpdate.setInt(1,delta);
-            statementUpdate.setInt(2,branchid);
-            statementUpdate.setInt(3,delta);
-            statementUpdate.setInt(4,tellerid);
-            statementUpdate.setInt(5,delta);
-            statementUpdate.setInt(6,accid);
-            statementUpdate.setInt(7,branchid);
-            statementUpdate.executeUpdate();
+//            statementUpdate.setInt(1,delta);
+  //          statementUpdate.setInt(2,branchid);
+   //         statementUpdate.setInt(3,delta);
+     //       statementUpdate.setInt(4,tellerid);
+     //       statementUpdate.setInt(5,delta);
+     //       statementUpdate.setInt(6,accid);
+     //       statementUpdate.setInt(7,branchid);
+      //      statementUpdate.executeUpdate();
 
             ResultSet rs = statementInsert.executeQuery("SELECT balance FROM branches WHERE branchId =" + branchid);
             while(rs.next()){
