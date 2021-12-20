@@ -44,7 +44,7 @@ public class Einzahlung  {
                 accbalance = rs.getInt(1);
             }
 
-            System.out.println("Der Kontostand nach der Einzahlung beträgt:\n" + accbalance);
+         //   System.out.println("Der Kontostand nach der Einzahlung beträgt:\n" + accbalance);
 
             statementInsert.setInt(1,accid);
             statementInsert.setInt(2,tellerid);

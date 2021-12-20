@@ -27,7 +27,7 @@ public class Analyse {
             if(!rs.next())
                 System.out.println("Es gab keine Transactions mit eine einzahlung mit eine höhe von: " + delta);
             else{
-                System.out.println("Die Einzahlungen betragen:");
+             //   System.out.println("Die Einzahlungen betragen:");
                 while (rs.next()) {
                     System.out.print("accid: " + rs.getInt(1)+"\t");
                     System.out.print("tellerid: " + rs.getInt(2)+"\t");

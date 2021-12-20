@@ -27,13 +27,18 @@ public class LoadDriver {
         timer.schedule(transaction5, 0, PERIOD);
 
         TimeUnit.MINUTES.sleep(4);
+        System.err.println("DIE EINFÜHRUNGSPHASE WURDE GESTARTET");
         int startTransactionAmount = PreparedTransaction.getAmountTransaction();
+
         TimeUnit.MINUTES.sleep(5);
+        System.err.println("DIE messpahse WURDE GESTARTET");
         int endTransactionAmount = PreparedTransaction.getAmountTransaction();
         int result = endTransactionAmount - startTransactionAmount;
-        System.out.println("Anzahl Tx Thread1: "  + result);
-        System.out.println("Durschnitt pro Sekunde: " + (float)(result/300));
+
         TimeUnit.MINUTES.sleep(1);
+        System.err.println("DIE SleepPHASE WURDE GESTARTET");
+        System.err.println("Anzahl Tx Thread1: "  + result);
+        System.err.println("Durschnitt pro Sekunde: " + (float)(result/300));
         timer.cancel();
     }
 }

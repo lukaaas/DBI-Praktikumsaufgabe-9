@@ -46,7 +46,7 @@ public class Table
     public void deleteTables()  {
         try (Connection conn = hikari.getConnection();
              Statement stmt = conn.createStatement();){
-        //  stmt.executeUpdate("Drop TABLE IF EXISTS history");
+          stmt.executeUpdate("Drop TABLE IF EXISTS history");
         stmt.executeUpdate("DROP TABLE IF EXISTS accounts");
         stmt.executeUpdate("DROP TABLE IF EXISTS tellers");
         stmt.executeUpdate("DROP TABLE IF EXISTS branches;");
