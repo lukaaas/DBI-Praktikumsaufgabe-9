@@ -16,7 +16,7 @@ public class Analyse {
         } catch (IOException e) {e.printStackTrace();}
     }
 
-    public void ausfuehren(int delta) throws SQLException {
+    public static void ausfuehren(int delta) throws SQLException {
 
         try (Connection conn = hikari.getConnection();
              PreparedStatement statement = conn.prepareStatement(query);){

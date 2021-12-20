@@ -8,9 +8,9 @@ public class PreparedTransaction extends TimerTask {
 
     private static int amoutPreparedTransaction;
     private int id;
-    private Kontostand kontostand;
+    /*private Kontostand kontostand;
     private Einzahlung einzahlung;
-    private Analyse analyse;
+    private Analyse analyse;*/
     private int randomBranchId;
     private int randomAccountId;
     private int randomTellerId;
@@ -25,14 +25,14 @@ public class PreparedTransaction extends TimerTask {
         initTransaction();
         try {
             if(randomTx <= 35)
-                kontostand.lesen(randomAccountId);
-                //Kontostand.kontostand(randomAccountId);
+                //kontostand.lesen(randomAccountId);
+                Kontostand.lesen(randomAccountId);
             if(randomTx > 35 && randomTx <= 85)
-                einzahlung.ausfuehren(randomAccountId,randomTellerId,randomBranchId,randomDelta);
-                //Einzahlung.einzahlung(randomAccountId,randomTellerId,randomBranchId,randomDelta);
+                //einzahlung.ausfuehren(randomAccountId,randomTellerId,randomBranchId,randomDelta);
+                Einzahlung.ausfuehren(randomAccountId,randomTellerId,randomBranchId,randomDelta);
             if(randomTx > 85)
-                analyse.ausfuehren(randomDelta);
-                //Analyse.analyse(randomDelta);
+                //analyse.ausfuehren(randomDelta);
+                Analyse.ausfuehren(randomDelta);
         } catch (Exception e) {e.printStackTrace();}
     }
     public void initTransaction(){
@@ -41,9 +41,9 @@ public class PreparedTransaction extends TimerTask {
         this.randomTellerId = new Random().nextInt(500);
         this.randomDelta = new Random().nextInt(2000);
         this.randomTx = new Random().nextInt(100);
-        this.kontostand = new Kontostand();
+        /*this.kontostand = new Kontostand();
         this.einzahlung = new Einzahlung();
-        this.analyse = new Analyse();
+        this.analyse = new Analyse();*/
         this.amoutPreparedTransaction++;
     }
 
