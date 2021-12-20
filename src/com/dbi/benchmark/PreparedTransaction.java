@@ -46,7 +46,6 @@ public class PreparedTransaction extends TimerTask {
         this.analyse = new Analyse();*/
         this.amoutPreparedTransaction++;
     }
-
     public static int getAmountTransaction(){
         return amoutPreparedTransaction;
     }
