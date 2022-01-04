@@ -17,8 +17,6 @@ O
 src/Entwurf/SetupBenchmark.java,4\9\496f34381296d39a9f7a5ccb57b6f55804ad8700
 N
 src/Entwurf/DriverManager.java,1\f\1fac04dfc3a0d4834b8bc80275dd68e0557a8026
-L
-src/com/dbi/db/DbConfig.java,0\a\0a3824355eb0bcba5d520e255f930f9a36ca0148
 I
 src/Entwurf/Database.java,7\e\7e86ee0de66a267ad3de609e7b494d1f7bc9b586
 U
@@ -37,3 +35,7 @@ U
 %src/com/dbi/transactions/Analyse.java,4\1\41ef1ba5cbf4d5a37d14eddd022ac465d77aec09
 X
 (src/com/dbi/transactions/Kontostand.java,e\6\e684ed359c3b78a672a4a0c07d2c13b39cbef104
+^
+.src/com/dbi/benchmark/PreparedTransaction.java,c\8\c8a21604c2ba8ffae34a8d405c5a084ccff4317a
+N
+src/com/dbi/db/DataSource.java,d\b\dba9a10d2f780d36091c9df83c85ed7bfb34cadb
