@@ -35,7 +35,5 @@ U
 %src/com/dbi/transactions/Analyse.java,4\1\41ef1ba5cbf4d5a37d14eddd022ac465d77aec09
 X
 (src/com/dbi/transactions/Kontostand.java,e\6\e684ed359c3b78a672a4a0c07d2c13b39cbef104
-^
-.src/com/dbi/benchmark/PreparedTransaction.java,c\8\c8a21604c2ba8ffae34a8d405c5a084ccff4317a
 N
 src/com/dbi/db/DataSource.java,d\b\dba9a10d2f780d36091c9df83c85ed7bfb34cadb
